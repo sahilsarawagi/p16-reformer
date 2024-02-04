@@ -9,7 +9,7 @@
   <input type="password" id="pwd" name="user[password]"><br><br>
   <input type="submit" value="Submit">
 </form>
--->
+
 
 
 <%= form_tag("/users", method: "post") do %>
@@ -21,3 +21,15 @@
   <%= password_field_tag(:password) %>
   <%= submit_tag("Submit") %>    
 <% end %>
+
+-->
+
+<%= form_with model: @user do |form| %>
+    <%= form.label :username , "Here is your Username" %>
+    <%= form.text_field :username, value: "pinky" %><br>
+    <%= form.label :email %>
+    <%= form.text_field :email,placeholder:"example@example.com" %><br>
+    <%= form.label :password %>
+    <%= form.password_field :password %><br>
+    <%= form.submit "Submit" %>
+  <% end %>
