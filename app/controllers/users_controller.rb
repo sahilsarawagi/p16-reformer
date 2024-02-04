@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(allowed_post_params)
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+   # @user = User.new(allowed_post_params)
 
     if @user.save
       redirect_to new_user_path
